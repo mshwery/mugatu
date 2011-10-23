@@ -1,7 +1,11 @@
 Mugatu::Application.routes.draw do
+  get "users/new"
 
-  get "pages/home"
-  get "pages/support"
-  get "pages/contact"
+  match '/signup',  :to => 'users#new'
+
+  match '/contact', :to => 'pages#contact'
+  match '/support',   :to => 'pages#support'
+  
+  root :to => 'pages#home'
 
 end
