@@ -11,6 +11,8 @@
 require 'digest'
 
 class User < ActiveRecord::Base
+  belongs_to :subdomain
+  
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
 
