@@ -1,0 +1,33 @@
+<% form_for @account do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+
+  <div class="field">
+    <%= f.label :name, "Subdomain" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.fields_for :users do |builder| %>
+    
+    <%= builder.hidden_field :admin, :value => true %>
+    <div class="field">
+      <%= builder.label :name %>
+      <%= builder.text_field :name %>
+    </div>
+    <div class="field">
+      <%= builder.label :email %>
+      <%= builder.text_field :email %>
+    </div>
+    <div class="field">
+      <%= builder.label :password %>
+      <%= builder.password_field :password %>
+    </div>
+    <div class="field">
+      <%= builder.label :password_confirmation, "Confirmation" %>
+      <%= builder.password_field :password_confirmation %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

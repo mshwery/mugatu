@@ -9,8 +9,12 @@
 #
 
 class Account < ActiveRecord::Base
+  attr_accessible :name, :users_attributes
+
   has_many :users, :dependent => :destroy
 
   validates :name, :presence => true,
                     :uniqueness => { :case_sensitive => false }
+
+  accepts_nested_attributes_for :users
 end

@@ -1,0 +1,11 @@
+<h1><%= h @account.name %>'s Dashboard</h1>
+
+<ul>
+  <% for user in @account.users %>
+  <li><%= h user.name %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to "Back to Mugatu App Home", root_path %>
+</p>

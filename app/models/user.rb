@@ -16,8 +16,8 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessor :password 
+  attr_accessible :name, :email, :password, :password_confirmation, :account_id, :admin
 
   belongs_to :account  
 
@@ -31,9 +31,7 @@ class User < ActiveRecord::Base
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..30 }
-#  before_validation :create_subdomain, :on => :create
   before_save :encrypt_password
-  before_create :create_account
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -46,18 +44,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
-    def create_account
-      if self.account_name.blank?
-        return
-      end
-      account = Account.find_by_name(self.account_name)
-      if account.nil?
-        self.account = Account.create!(:name => self.account_name)
-      else
-        self.account_name = ""
-      end
-    end
 
     def encrypt_password
       self.salt = make_salt unless has_password?(password)

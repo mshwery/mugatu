@@ -5,7 +5,20 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+    @account = Account.new(:user => @user)
     @title = "Sign up"
   end
 
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+    #  sign_in @user
+      flash[:success] = "Welcome to Mugatu!"
+      redirect_to @account
+    else
+      @title = "Sign up"
+      render 'new'
+    end
+  end
 end
