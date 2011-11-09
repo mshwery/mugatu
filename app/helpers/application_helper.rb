@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def logo
-    image_tag "rails.png", :alt => "Mugatu App"
+    image_tag "", :alt => "Mugatu App"
   end
 
   def title
