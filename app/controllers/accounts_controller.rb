@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
     @account = Account.new(params[:account])
     if @account.save
       flash[:notice] = "Successfully created account."
-      redirect_to @account
+      redirect_to root_url(:subdomain => @account.name)
     else
       render :action => 'new'
     end
