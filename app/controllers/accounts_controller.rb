@@ -45,8 +45,4 @@ class AccountsController < ApplicationController
     redirect_to accounts_url
   end
 
-  private
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end  
 end
