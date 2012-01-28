@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-
+    
   def index
     @accounts = Account.all
   end
@@ -44,4 +44,9 @@ class AccountsController < ApplicationController
     flash[:notice] = "Successfully destroyed account."
     redirect_to accounts_url
   end
+
+  private
+    def current_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end  
 end

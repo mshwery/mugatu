@@ -5,12 +5,12 @@
     This is the home page for the Mugatu.
   </p>
   <p>
-    Here's a list of taken domains
+    Here's a list of existing domains
   </p>
     
   <ul>
     <% @accounts.each do |account| %>
-    <li><%= link_to account.name, root_url(:subdomain => account.name) %></li>
+      <li><%= link_to account.name, root_url(:subdomain => account.name) %></li>
     <% end %>
   </ul>
 

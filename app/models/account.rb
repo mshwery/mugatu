@@ -17,4 +17,12 @@ class Account < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
 
   accepts_nested_attributes_for :users
+  
+  before_create :downcase_name
+
+  private
+    def downcase_name
+      self.name.downcase!
+    end
+
 end

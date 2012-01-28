@@ -1,12 +1,13 @@
 Mugatu::Application.routes.draw do |map|
+
   require 'subdomain'
   resources :users
   resources :accounts
+  resources :sessions
 
   match '/signup',  :to => 'accounts#new'
-
-  match '/contact', :to => 'pages#contact'
-  match '/support',   :to => 'pages#support'
+  match '/login', :to => 'sessions#new'
+  match '/logout', :to => 'sessions#destroy'
 
   constraints(Subdomain) do
     match '/' => 'accounts#show'  

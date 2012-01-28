@@ -6,24 +6,24 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :users do |builder| %>
+  <%= f.fields_for :users do |user| %>
     
-    <%= builder.hidden_field :admin, :value => true %>
+    <%= user.hidden_field :admin, :value => true %>
     <div class="field">
-      <%= builder.label :name %>
-      <%= builder.text_field :name %>
+      <%= user.label :name %>
+      <%= user.text_field :name %>
     </div>
     <div class="field">
-      <%= builder.label :email %>
-      <%= builder.text_field :email %>
+      <%= user.label :email %>
+      <%= user.text_field :email %>
     </div>
     <div class="field">
-      <%= builder.label :password %>
-      <%= builder.password_field :password %>
+      <%= user.label :password %>
+      <%= user.password_field :password %>
     </div>
     <div class="field">
-      <%= builder.label :password_confirmation, "Confirmation" %>
-      <%= builder.password_field :password_confirmation %>
+      <%= user.label :password_confirmation, "Confirmation" %>
+      <%= user.password_field :password_confirmation %>
     </div>
   <% end %>
 
