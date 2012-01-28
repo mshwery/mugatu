@@ -1,13 +1,14 @@
 <header class="wrap">
-  <%= link_to logo, root_path %>
+  <!-- <%= link_to logo, root_path %> --> 
   <nav>
     <ul>
       <% if current_user %>
-        <li><%= link_to current_user.account.name.capitalize, root_url(:subdomain => current_user.account.name) %>: <%= current_user.email %></li>
+        <li>logged in as <%= current_user.email %></li>
       <% end %>
-      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Home", root_url(:subdomain => false) %></li>
       <% if current_user %>
-        <li><%= link_to "Log out", logout_path %></li>
+        <li><%= link_to "Dashboard", root_url(:subdomain => current_user.account.name) %></li>
+        <li><%= link_to "Log out", logout_url(:subdomain => false) %></li>
       <% else %>
         <li><%= link_to "Sign up", signup_path %></li>
         <li><%= link_to "Log in", login_path %></li>
