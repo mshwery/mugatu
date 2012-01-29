@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  
+#  before_filter :login_required, :only => :show
     
   def index
     @accounts = Account.all
@@ -6,6 +8,9 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find_by_name!(request.subdomain)
+    if current_user.account != @account
+      redirect_to root_url(:subdomain => false)
+    end
   end
   
   def new
