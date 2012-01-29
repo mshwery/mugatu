@@ -10,8 +10,6 @@
 #
 
 class Recipe < ActiveRecord::Base
-  belongs_to :account
-
   has_many :ingredients
   has_many :items, :through => :ingredients
 end
