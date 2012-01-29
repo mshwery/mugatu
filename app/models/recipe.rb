@@ -12,9 +12,14 @@
 
 class Recipe < ActiveRecord::Base
   belongs_to :account
+
+  attr_accessible :name, :notes, :account_id, :ingredients_attributes
   
   has_many :ingredients
   has_many :items, :through => :ingredients
+
+  accepts_nested_attributes_for :ingredients
+
 end
 
 

@@ -5,9 +5,9 @@ class AccountsController < ApplicationController
   end
 
   def show
-    @account = Account.find_by_name!(request.subdomain)
-    if current_user.account != @account
-      redirect_to root_url(:subdomain => false)
+    @account = Account.find_by_name!(request.subdomain) 
+    if current_user.nil? or current_user.account != @account
+      redirect_to root_url(:subdomain => false), :notice => "Please log in first."
     end
   end
   

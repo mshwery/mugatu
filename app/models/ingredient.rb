@@ -12,6 +12,9 @@
 class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :item
+
+  attr_accessible :quantity, :item_id, :recipe_id
+
 end
 
 
