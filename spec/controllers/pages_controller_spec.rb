@@ -21,28 +21,4 @@ describe PagesController do
 
   end
 
-  describe "GET 'support'" do
-    it "should be successful" do
-      get 'support'
-      response.should be_success
-    end
-
-    it "should have the right title" do
-      get 'support'
-      response.should have_selector("title", :content => @base_title + " | Support")
-    end
-  end
-
-  describe "GET 'contact'" do
-    it "should be successful" do
-      get 'contact'
-      response.should be_success
-    end
-
-    it "should have the right title" do
-      get 'contact'
-      response.should have_selector("title", :content => @base_title + " | Contact")
-    end
-  end
-
 end
