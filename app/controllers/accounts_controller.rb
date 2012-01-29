@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
-  
-#  before_filter :login_required, :only => :show
-    
+      
   def index
     @accounts = Account.all
   end

@@ -7,6 +7,7 @@
 #  notes      :text
 #  created_at :datetime
 #  updated_at :datetime
+#  account_id :integer
 #
 
 class Recipe < ActiveRecord::Base
@@ -15,5 +16,8 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients
   has_many :items, :through => :ingredients
 end
+
+
+
 
 

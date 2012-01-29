@@ -1,0 +1,31 @@
+<h1>New Recipe</h1>
+
+<% form_for @recipe do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+
+  <div class="field">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :notes, "Notes" %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <%= f.fields_for :ingredients do |i| %>
+    <div class="field">
+      <%= i.collection_select(:item_id, @items, :id, :name, options ={:prompt => "-Select an ingredient"}) %>
+<!--      <%= collection_select(:item, :item_id, @items, :id, :name, options ={:prompt => "-Select an ingredient"}) %> -->
+    </div>
+    <div class="field">
+      <%= i.label :quantity %>
+      <%= i.text_field :quantity %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
+<%= link_to "Add New Items", new_item_path %>

@@ -1,0 +1,12 @@
+<h1>Recipe: <%= @recipe.name %> (<%= @recipe.id %>)</h1>
+
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.quantity %> units of <%= ingredient.item.name %></li>
+  <% end %>
+  <li><%= link_to "Add More...", edit_recipe_path %></li>
+</ul>
+
+<%= link_to "Edit Recipe", edit_recipe_path %>
+
+<p>Find me in app/views/recipes/show.html.erb</p>
