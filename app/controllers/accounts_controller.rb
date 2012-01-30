@@ -1,14 +1,13 @@
 class AccountsController < ApplicationController
       
+  before_filter :require_permission, :only => 'show'
+
   def index
     @accounts = Account.all
   end
 
   def show
     @account = Account.find_by_name!(request.subdomain)
-    if current_user.nil? or current_user.account.id != @account.id
-      redirect_to root_url(:subdomain => false), :notice => "Please log in first."
-    end
   end
   
   def new
@@ -48,4 +47,16 @@ class AccountsController < ApplicationController
     redirect_to accounts_url
   end
 
+  private
+    def require_permission
+      redirect_to login_url(:subdomain => false) unless has_permission?
+    end
+
+    def has_permission?
+      if current_user && (current_user.account.name == request.subdomain)
+        return true
+      else
+        false
+      end
+    end
 end
