@@ -56,7 +56,7 @@ class AccountsController < ApplicationController
       if current_user && (current_user.account.name == request.subdomain)
         return true
       else
-        false
+        return false
       end
     end
 end

@@ -17,7 +17,7 @@ class Account < ActiveRecord::Base
   validates :name, :presence => true,
                     :uniqueness => { :case_sensitive => false }
 
-  accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :users, :allow_destroy => true
   
   before_create :downcase_name
 

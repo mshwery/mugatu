@@ -1,2 +1,37 @@
-<h1>Recipes#edit</h1>
-<p>Find me in app/views/recipes/edit.html.erb</p>
+<h1>Recipe: <%= @recipe.name %> (<%= @recipe.id %>)</h1>
+
+<%= form_for @recipe do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+    
+  <%= f.hidden_field :account_id, :value => current_user.account.id %>
+
+  <div class="field">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :notes, "Notes" %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <%= f.fields_for :ingredients do |builder| %>
+    <div class="field">
+      <%= builder.collection_select(:item_id, @items, :id, :name, options ={:prompt => "-Select an ingredient"}) %>
+    </div>
+    <div class="field">
+      <%= builder.label :quantity %>
+      <%= builder.text_field :quantity %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
+<%= link_to "Add New Items", new_item_path %>
+
+<p>
+  <%= link_to "Destroy", @recipe, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", recipes_path %>
+</p>

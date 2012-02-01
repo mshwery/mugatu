@@ -3,10 +3,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @items = Item.all
-    @recipe.ingredients.build
-#    1.times do
-#      ingredient = @recipe.ingredients.build      
-#    end
+#    @recipe.ingredients.build
+    2.times { @recipe.ingredients.build }
   end
 
   def show
@@ -14,6 +12,24 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+    @recipe.ingredients.build
+    @items = Item.all
+  end
+
+  def index
+    @account = Account.find_by_name(request.subdomain)
+    @recipes = @account.recipes
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update_attributes(params[:recipe])
+      flash[:success] = "Recipe Updated!"
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
   end
 
   def create
@@ -27,8 +43,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    Recipe.find(params[:id]).destroy
-    redirect_to root_url(:subdomain => false)
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
 end

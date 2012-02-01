@@ -4,9 +4,11 @@
   <% @recipe.ingredients.each do |ingredient| %>
     <li><%= ingredient.quantity %> units of <%= ingredient.item.name %></li>
   <% end %>
-  <li><%= link_to "Add More...", edit_recipe_path %></li>
+  <li><%= link_to "Add More...", edit_recipe_path(@recipe) %></li>
 </ul>
 
-<%= link_to "Edit Recipe", edit_recipe_path %>
-
-<p>Find me in app/views/recipes/show.html.erb</p>
+<p>
+  <%= link_to "Edit", edit_recipe_path(@recipe) %> |
+  <%= link_to "Destroy", @recipe, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", recipes_path %>
+</p>

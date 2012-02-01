@@ -15,10 +15,10 @@ class Recipe < ActiveRecord::Base
 
   attr_accessible :name, :notes, :account_id, :ingredients_attributes
   
-  has_many :ingredients
+  has_many :ingredients, :dependent => :destroy
   has_many :items, :through => :ingredients
 
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:quantity].blank? }, :allow_destroy => true
 
 end
 
