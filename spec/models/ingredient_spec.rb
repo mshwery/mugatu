@@ -4,6 +4,7 @@ describe Ingredient do
 end
 
 
+
 # == Schema Information
 #
 # Table name: ingredients
@@ -11,7 +12,7 @@ end
 #  quantity   :decimal(, )
 #  created_at :datetime
 #  updated_at :datetime
-#  recipe_id  :integer
+#  recipe_id  :integer         primary key
 #  item_id    :integer
 #
 
