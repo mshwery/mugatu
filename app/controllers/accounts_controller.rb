@@ -1,5 +1,4 @@
-class AccountsController < ApplicationController
-      
+class AccountsController < ApplicationController      
   before_filter :require_permission, :only => 'show'
 
   def index
@@ -19,10 +18,9 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(params[:account])
     if @account.save
-      flash[:notice] = "Successfully created account."
-      redirect_to root_url(:subdomain => @account.name)
+      redirect_to root_url(:subdomain => @account.name), :notice => "Successfully created account."
     else
-      render :action => 'new'
+      render 'new'
     end
   end
 
@@ -33,18 +31,16 @@ class AccountsController < ApplicationController
   def update
     @account = Account.find(params[:id])
     if @account.update_attributes(params[:account])
-      flash[:notice] = "Successfully updated account."
-      redirect_to @account
+      redirect_to @account, :notice => "Successfully updated account."
     else
-      render :action => 'edit'
+      render 'edit'
     end
   end
  
   def destroy
     @account = Account.find(params[:id])
     @account.destroy
-    flash[:notice] = "Successfully destroyed account."
-    redirect_to accounts_url
+    redirect_to accounts_url, :notice => "Successfully destroyed account."
   end
 
   private
