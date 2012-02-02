@@ -1,25 +1,16 @@
 require 'spec_helper'
 
 describe RecipesController do
-
-  describe "GET 'new'" do
-    it "should be successful" do
-      get 'new'
-      response.should be_success
+  describe "GET index" do
+    it "assigns @recipes" do
+      recipe = Recipe.create
+      get :show
+      assigns(:recipe).should eq([recipe])
     end
-  end
 
-  describe "GET 'show'" do
-    it "should be successful" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "should be successful" do
-      get 'edit'
-      response.should be_success
+    it "renders the show template" do
+      get :show
+      response.should render_template("show")
     end
   end
 

@@ -1,7 +1,16 @@
 require 'spec_helper'
 
 describe Recipe do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before(:each) do
+    @recipe = Recipe.new({:name => "Name", :notes => "These are notes.", :account_id => 1})
+  end
+
+  describe "#new" do
+    it "returns a new recipe object" do
+      @recipe.should be_an_instance_of Recipe
+    end
+  end
 end
 
 

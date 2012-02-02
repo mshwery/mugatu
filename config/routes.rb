@@ -23,8 +23,8 @@ Mugatu::Application.routes.draw do |map|
   get "recipes/users"
 
   require 'subdomain'
-  resources :users
   resources :accounts
+  resources :users
   resources :sessions
   resources :recipes
   resources :items

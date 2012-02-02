@@ -20,6 +20,11 @@ class Recipe < ActiveRecord::Base
 
   accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:quantity].blank? }, :allow_destroy => true
 
+  validates :name,  :presence   => true,
+                    :length     => { :maximum => 50 },
+                    :uniqueness => { :case_sensitive => false }
+                    
+  validates :account_id, :presence => true
 end
 
 
