@@ -1,6 +1,4 @@
-Mugatu::Application.routes.draw do
-  require 'subdomain'
-  
+Mugatu::Application.routes.draw do  
   get "recipes/new"
   get "recipes/show"
   get "recipes/edit"
@@ -23,10 +21,7 @@ Mugatu::Application.routes.draw do
   match '/signup',  :to => 'accounts#new', :as => 'signup'
   match '/login', :to => 'sessions#new', :as => 'login'
   match '/logout', :to => 'sessions#destroy', :as => 'logout'
-
-  constraints(Subdomain) do
-    match '/' => 'accounts#show'  
-  end
+  match '/dashboard', :to => 'accounts#show', :as => 'dashboard'
  
   root :to => 'pages#home'
 

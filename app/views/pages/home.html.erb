@@ -6,7 +6,7 @@
   </p>
   <ul>
     <% @accounts.each do |account| %>
-      <li><%= link_to account.name, root_url(:subdomain => account.name) %></li>
+      <li><%= link_to account.name, account %></li>
     <% end %>
   </ul>
 

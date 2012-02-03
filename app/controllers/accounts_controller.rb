@@ -7,7 +7,8 @@ class AccountsController < ApplicationController
   end
 
   def show
-    @account = Account.find_by_name!(request.subdomain)
+    @account = current_user.account
+#    @account = Account.find_by_name!(request.subdomain)
   end
   
   def new
@@ -43,17 +44,5 @@ class AccountsController < ApplicationController
     @account.destroy
     redirect_to accounts_url, :notice => "Successfully destroyed account."
   end
-
-  private
-    def require_permission
-      redirect_to login_url(:subdomain => false) unless has_permission?
-    end
-
-    def has_permission?
-      if current_user && (current_user.account.name == request.subdomain)
-        return true
-      else
-        return false
-      end
-    end
+  
 end

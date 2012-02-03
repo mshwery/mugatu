@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @account = Account.find_by_name(request.subdomain)
+    @account = current_user.account
     @recipes = @account.recipes
   end
 

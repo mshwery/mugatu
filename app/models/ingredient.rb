@@ -4,14 +4,7 @@ class Ingredient < ActiveRecord::Base
 
   attr_accessible :quantity, :item_id, :recipe_id
 
-  set_primary_key :recipe_id
-
 end
-
-
-
-
-
 
 # == Schema Information
 #
@@ -20,7 +13,8 @@ end
 #  quantity   :decimal(, )
 #  created_at :datetime
 #  updated_at :datetime
-#  recipe_id  :integer         primary key
+#  recipe_id  :integer
 #  item_id    :integer
+#  id         :integer
 #
 
