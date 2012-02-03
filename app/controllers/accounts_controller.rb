@@ -1,14 +1,12 @@
 class AccountsController < ApplicationController      
-  #before_filter :authenticate_user!
-  #before_filter :require_permission, :only => 'show'
+  before_filter :require_permission, :only => ['show', 'edit']
 
   def index
     @accounts = Account.all
   end
 
   def show
-    @account = current_user.account
-#    @account = Account.find_by_name!(request.subdomain)
+    @account = Account.find(params[:id])
   end
   
   def new
@@ -20,7 +18,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(params[:account])
     if @account.save
-      redirect_to root_url #(:subdomain => @account.name), :notice => "Successfully created account."
+      redirect_to root_url, :notice => "Successfully created account."
     else
       render 'new'
     end
@@ -44,5 +42,18 @@ class AccountsController < ApplicationController
     @account.destroy
     redirect_to accounts_url, :notice => "Successfully destroyed account."
   end
+
+  private
+    def require_permission
+      redirect_to root_url unless has_permission?
+    end
+
+    def has_permission?
+      if current_user && (current_user.account.id == params[:id])
+        return true
+      else
+        false
+      end
+    end
   
 end

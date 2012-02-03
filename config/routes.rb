@@ -21,7 +21,6 @@ Mugatu::Application.routes.draw do
   match '/signup',  :to => 'accounts#new', :as => 'signup'
   match '/login', :to => 'sessions#new', :as => 'login'
   match '/logout', :to => 'sessions#destroy', :as => 'logout'
-  match '/dashboard', :to => 'accounts#show', :as => 'dashboard'
  
   root :to => 'pages#home'
 
