@@ -18,6 +18,8 @@ Mugatu::Application.routes.draw do
   resources :items
   resources :ingredients
 
+  match '/dashboard', :to => 'accounts#index'
+
   match '/signup',  :to => 'accounts#new', :as => 'signup'
   match '/login', :to => 'sessions#new', :as => 'login'
   match '/logout', :to => 'sessions#destroy', :as => 'logout'
