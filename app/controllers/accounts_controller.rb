@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController      
-  before_filter :require_permission, :only => 'show'
+  #before_filter :authenticate_user!
+  #before_filter :require_permission, :only => 'show'
 
   def index
     @accounts = Account.all
@@ -18,7 +19,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(params[:account])
     if @account.save
-      redirect_to root_url(:subdomain => @account.name), :notice => "Successfully created account."
+      redirect_to root_url #(:subdomain => @account.name), :notice => "Successfully created account."
     else
       render 'new'
     end

@@ -5,13 +5,13 @@
       <% if current_user %>
         <li>logged in as <%= current_user.email %></li>
       <% end %>
-      <li><%= link_to "Home", root_url %></li>
+      <li><%= link_to "Home", root_url(:subdomain => false) %></li>
       <% if current_user %>
         <li><%= link_to "Dashboard", root_url(:subdomain => current_user.account.name) %></li>
-        <li><%= link_to "Log out", logout_url %></li>
+        <li><%= link_to "Log out", logout_url(:subdomain => false) %></li>
       <% else %>
         <li><%= link_to "Sign up", signup_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to "Log in", login_url %></li>
       <% end %>
     </ul>
   </nav>

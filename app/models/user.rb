@@ -13,7 +13,6 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :password 
   attr_accessible :name, :email, :password, :password_confirmation, :account_id, :admin
   has_secure_password
 
@@ -23,6 +22,7 @@ class User < ActiveRecord::Base
 
   validates :name,  :presence   => true,
                     :length     => { :maximum => 50 }
+
   validates :email, :presence   => true,
                     :format     => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
