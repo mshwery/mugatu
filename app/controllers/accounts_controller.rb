@@ -1,7 +1,6 @@
 class AccountsController < ApplicationController      
-  before_filter :require_user, :except => [:new, :create]
+  before_filter :require_user, :except => ['new', 'create']
   before_filter :require_permission, :only => ['show', 'edit']
-  before_filter :require_login
 
   def index
     @account = current_user.account
@@ -48,10 +47,6 @@ class AccountsController < ApplicationController
   private
     def require_permission
       redirect_to root_url unless logged_in? && (current_user.account.id == params[:id])
-    end
-
-    def require_login
-      redirect_to root_url unless logged_in?
     end
     
     def logged_in?

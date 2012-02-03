@@ -7,7 +7,7 @@
       <li>
         <%= user.name %>
         <% if user == current_user %>
-          <span><%= link_to "Edit", edit_user_path(user.id) %></span>
+          <span><%= link_to "Edit", edit_user_path %></span>
         <% end %>
       </li>
     <% end %>

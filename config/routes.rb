@@ -2,9 +2,6 @@ Mugatu::Application.routes.draw do
   get "recipes/new"
   get "recipes/show"
   get "recipes/edit"
-  get "users/new"
-  get "users/show"
-  get "users/edit"
   get "items/show"
   get "items/edit"
   get "items/new"
@@ -20,7 +17,11 @@ Mugatu::Application.routes.draw do
 
   match '/dashboard', :to => 'accounts#index'
 
-  match '/signup',  :to => 'accounts#new', :as => 'signup'
+  resource :user do
+    match '/edit', :to => 'users#edit', :as => 'edit'
+  end
+
+  match '/signup', :to => 'accounts#new', :as => 'signup'
   match '/login', :to => 'sessions#new', :as => 'login'
   match '/logout', :to => 'sessions#destroy', :as => 'logout'
  

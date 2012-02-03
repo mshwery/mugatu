@@ -1,7 +1,19 @@
-<h1>User: <%= @user.name %></h1>
-<p>email: <%= @user.email %></p>
-<p>id: <%= @user.id %></p>
-<p>account: <%= @user.account.name %></p>
+<%= form_for @user do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
 
-<p>Find me in app/views/users/edit.html.erb</p>
-
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

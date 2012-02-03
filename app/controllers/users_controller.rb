@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @title = @user.name
   end
 
@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user = User.new
     @account = Account.new(:user => @user)
     @title = "Sign up"
-  end
-
-  def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -22,4 +18,18 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to user_path, :notice => 'Your profile was successfully updated.'
+    else
+      render 'edit'
+    end
+  end
+
 end
