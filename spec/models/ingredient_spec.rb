@@ -7,15 +7,18 @@ end
 
 
 
+
+
+
 # == Schema Information
 #
 # Table name: ingredients
 #
-#  quantity   :decimal(, )
-#  created_at :datetime
-#  updated_at :datetime
+#  id         :integer         not null, primary key
+#  quantity   :string(255)
 #  recipe_id  :integer
 #  item_id    :integer
-#  id         :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 

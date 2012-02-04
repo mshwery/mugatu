@@ -1,19 +1,23 @@
-<%= form_for @user do |f| %>
-  <%= render 'partials/error_messages', :object => f.object %>
+<section id="users">
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+  <%= form_for @user do |f| %>
+    <%= render 'partials/error_messages', :object => f.object %>
+
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </fieldset>
+    <fieldset>
+      <%= f.submit "Submit" %>
+    </fieldset>
+  <% end %>
+
+</section>

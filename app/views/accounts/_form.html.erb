@@ -1,33 +1,33 @@
 <%= form_for @account do |f| %>
   <%= render 'partials/error_messages', :object => f.object %>
 
-  <div class="field">
+  <fieldset>
     <%= f.label :name, "Company" %>
     <%= f.text_field :name %>
-  </div>
+  </fieldset>
 
   <%= f.fields_for :users do |user| %>
     
     <%= user.hidden_field :admin, :value => true %>
-    <div class="field">
+    <fieldset>
       <%= user.label :name %>
       <%= user.text_field :name %>
-    </div>
-    <div class="field">
+    </fieldset>
+    <fieldset>
       <%= user.label :email %>
       <%= user.text_field :email %>
-    </div>
-    <div class="field">
+    </fieldset>
+    <fieldset>
       <%= user.label :password %>
       <%= user.password_field :password %>
-    </div>
-    <div class="field">
+    </fieldset>
+    <fieldset>
       <%= user.label :password_confirmation, "Confirmation" %>
       <%= user.password_field :password_confirmation %>
-    </div>
+    </fieldset>
   <% end %>
 
-  <div>
+  <fieldset>
     <%= f.submit "Submit" %>
-  </div>
+  </fieldset>
 <% end %>

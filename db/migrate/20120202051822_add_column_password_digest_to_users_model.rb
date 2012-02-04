@@ -1,5 +1,5 @@
 class AddColumnPasswordDigestToUsersModel < ActiveRecord::Migration
-  def up
+  def self.up
     add_column :users, :password_digest, :string
   end
 end

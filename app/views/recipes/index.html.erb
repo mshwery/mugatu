@@ -1,13 +1,19 @@
-<h1>Recipes:</h1>
+<section id="recipes">
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <%= recipe.name %> (<%= recipe.id %>)
-      <%= link_to "Edit", edit_recipe_path(recipe) %> |
-      <%= link_to "Destroy", recipe, :confirm => 'Are you sure?', :method => :delete %> |
-    </li>
-  <% end %>
-  <li><%= link_to "Add More...", new_recipe_path %></li>
-</ul>
+  <h1>Recipes:</h1>
 
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <%= link_to recipe.name, recipe, :class => 'recipe' %> |
+        <%= link_to "Edit", edit_recipe_path(recipe) %> |
+        <%= link_to "Destroy", recipe, :confirm => 'Are you sure?', :method => :delete %>
+      </li>
+    <% end %>
+  </ul>
+  <p>
+    <%= link_to "New Recipe", new_recipe_path %> |
+    <%= link_to "New Item", new_item_path %>
+  </p>
+
+</section>

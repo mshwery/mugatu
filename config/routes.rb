@@ -7,6 +7,7 @@ Mugatu::Application.routes.draw do
   get "items/new"
   get "recipes/items"
   get "recipes/users"
+  get "items/index"
 
   resources :accounts
   resources :users

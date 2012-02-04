@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
 
   def index
     @account = current_user.account
+    @items = Item.all
   end
 
   def show

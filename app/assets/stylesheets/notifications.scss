@@ -1,0 +1,103 @@
+$red  : #c4161b;
+$gray : #444;
+$green: rgb(40,210,40);
+
+#notifications {
+  position: relative;
+
+  .flash, 
+  #error_explanation {
+    position: relative;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    z-index: 900;
+    font-size: 14px;
+    text-align: center;
+    @include box-shadow-inset(0px,-1px,8px,rgba(0,0,0,.25));
+    cursor: pointer;
+
+    &:hover {
+      .close {
+        background-color: rgba(0,0,0,.05);
+        opacity: 1;
+      }
+    }
+
+    .close {
+      display: block;
+      position: absolute;
+      opacity: .7;
+      right: 8px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      text-indent: -9999px;
+      background-color: transparent;
+      @include border-radius(2px);
+      background-image: url(close_gray.png);
+      background-repeat: no-repeat;
+      background-position: center;  
+    }    
+  }
+  .flash.notice {
+    background: $gray;
+    border-color: darken($gray, 50%);
+    .close {
+      border: 1px solid darken($gray, 10%);
+      &:hover {
+        border: 1px solid darken($gray, 50%);
+      }       
+    }
+  }
+  .flash.alert,   
+  .flash.error, 
+  #error_explanation {
+    background: $red;
+    border-color: darken($red, 15%);
+    a { 
+      color: #333; 
+      &:hover { text-decoration: underline; color: #111; }
+    }
+    .close {
+      border: 1px solid darken($red, 10%);
+      &:hover {
+        border: 1px solid darken($red, 15%);
+      }       
+    } 
+  }
+  .flash.success {
+    background: $green;
+    border-color: darken($green, 15%);
+    .close {
+      border: 1px solid darken($green, 15%);
+      &:hover {
+        border: 1px solid darken($green, 25%);
+      }       
+    }
+  }  
+}
+
+#error_explanation {
+  text-align: left;
+  h2 {
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    color: #444;
+    padding: 5px 0;
+  }
+  ul {
+    padding: 5px 0;
+    margin-left: 1.5em;
+    li {
+    list-style: circle;
+    }
+  }
+}
+.field_with_errors {
+  display: inline;
+  input {
+    outline: 1px solid rgba(210,40,40,.5);
+  }
+}

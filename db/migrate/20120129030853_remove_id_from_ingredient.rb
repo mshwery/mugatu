@@ -1,6 +1,6 @@
 class RemoveIdFromIngredient < ActiveRecord::Migration
   def self.up
-    remove_column :ingredients, :id
+    add_column :ingredients, :id, :primary_key
   end
 
   def self.down

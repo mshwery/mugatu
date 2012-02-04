@@ -1,4 +1,12 @@
-<h1>Item: <%= @item.name %></h1>
-<p>Description: <%= @item.description %></p>
+<section id="items">
 
-<%= link_to "Edit item", edit_item_path %>
+  <h1>Item: <%= @item.name %></h1>
+  <p>Description: <%= @item.description %></p>
+
+  <p>
+    <%= link_to "Edit", edit_item_path %> | 
+    <%= link_to 'New', items_new_path %> | 
+    <%= link_to 'See All', items_path %>
+  </p>
+
+</section>

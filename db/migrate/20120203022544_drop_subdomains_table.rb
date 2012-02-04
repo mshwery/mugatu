@@ -1,5 +1,5 @@
 class DropSubdomainsTable < ActiveRecord::Migration
-  def up
+  def self.up
     drop_table :subdomains
   end
 

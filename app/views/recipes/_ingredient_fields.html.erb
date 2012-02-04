@@ -1,0 +1,5 @@
+<fieldset>
+  <%= f.collection_select(:item_id, @items, :id, :name, options ={:prompt => "-Select an ingredient"}) %>
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity, :autocomplete => 'off' %>
+</fieldset>

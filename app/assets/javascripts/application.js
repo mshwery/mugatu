@@ -1,5 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 //
-//= require_self
-//= require_tree .
+//= require_tree ./lib
+//= require_tree ./controllers
+//= require_tree ./global
+//= require boot

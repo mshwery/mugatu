@@ -1,18 +1,21 @@
-<header class="wrap">
-  <!-- <%= link_to logo, root_path %> --> 
-  <nav>
-    <ul>
-      <% if current_user %>
-        <li>logged in as <%= current_user.email %></li>
-      <% end %>
+<%= render 'partials/notifications' %>  
+
+<header>
+  <nav class="wrap clear">
+    <ul class="left">
       <li><%= link_to "Home", root_url %></li>
-      <% if current_user %>
+    <% if current_user %>
         <li><%= link_to "Dashboard", dashboard_path %></li>
+      </ul>
+      <ul class="right">
+        <li>logged in as <%= current_user.email %></li>
         <li><%= link_to "Log out", logout_path %></li>
-      <% else %>
+    <% else %>
+      </ul>
+      <ul class="right">
         <li><%= link_to "Sign up", signup_path %></li>
         <li><%= link_to "Log in", login_path %></li>
-      <% end %>
+    <% end %>
     </ul>
   </nav>
 </header>

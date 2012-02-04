@@ -1,0 +1,16 @@
+<%= form_for @item do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </fieldset>
+  <fieldset>
+    <%= link_to "Cancel", items_path %>
+    <%= f.submit "Submit" %>
+  </fieldset>
+<% end %>

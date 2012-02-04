@@ -1,25 +1,39 @@
-<h1><%= @account.name.capitalize %>'s Dashboard</h1>
+<section id="dashboard">
 
-<div id="users">
-  <h4>Users</h4>
-  <ul>
-    <% @account.users.each do |user| %>
-      <li>
-        <%= user.name %>
-        <% if user == current_user %>
-          <span><%= link_to "Edit", edit_user_path %></span>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+  <h1><%= @account.name.capitalize %>'s Dashboard</h1>
 
-<div id="recipes">
-  <h4>Recipes</h4>
-  <ul>
-    <% @account.recipes.each do |recipe| %>
-      <li><%= link_to recipe.name, recipe %></li>
-    <% end %>
-  </ul>
-  <span><%= link_to "New Recipe", new_recipe_path %></span>
-</div>
+  <div id="users">
+    <h4>Users</h4>
+    <ul>
+      <% @account.users.each do |user| %>
+        <li>
+          <%= user.name %>
+          <% if user == current_user %>
+            <%= link_to "Edit", edit_user_path %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="recipes">
+    <h4>Recipes</h4>
+    <ul>
+      <% @account.recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe %></li>
+      <% end %>
+    </ul>
+    <span><%= link_to "New Recipe", new_recipe_path %></span>
+  </div>
+
+  <div id="items">
+    <h4>Items</h4>
+    <ul>
+      <% @items.each do |item| %>
+        <li><%= link_to item.name, item %></li>
+      <% end %>
+    </ul>
+    <span><%= link_to "New Item", new_item_path %></span>
+  </div>
+  
+</section>

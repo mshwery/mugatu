@@ -1,14 +1,18 @@
-<h1>Recipe: <%= @recipe.name %> (<%= @recipe.id %>)</h1>
+<section id="recipes">
 
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.quantity %> units of <%= ingredient.item.name %></li>
-  <% end %>
-  <li><%= link_to "Add More...", edit_recipe_path(@recipe) %></li>
-</ul>
+  <h1><%= @recipe.name %> (<%= @recipe.id %>)</h1>
 
-<p>
-  <%= link_to "Edit", edit_recipe_path(@recipe) %> |
-  <%= link_to "Destroy", @recipe, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", recipes_path %>
-</p>
+  <p>Ingredients:</p>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.quantity %> units of <%= ingredient.item.name %></li>
+    <% end %>
+  </ul>
+
+  <p>
+    <%= link_to "Edit", edit_recipe_path(@recipe) %> | 
+    <%= link_to "Destroy", @recipe, :confirm => 'Are you sure?', :method => :delete %> | 
+    <%= link_to "View All", recipes_path %>
+  </p>
+
+</section>

@@ -1,9 +1,9 @@
 class RemoveColumnPasswordFromUsers < ActiveRecord::Migration
-  def up
+  def self.up
     remove_column :users, :encrypted_password
   end
 
-  def down
+  def self.down
     add_column :users, :encrypted_password, :string
   end
 end

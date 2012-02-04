@@ -1,0 +1,22 @@
+<%= form_for @recipe do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+    
+  <%= f.hidden_field :account_id, :value => current_user.account.id %>
+
+  <fieldset>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :notes, "Notes" %>
+    <%= f.text_field :notes %>
+  </fieldset>
+
+  <%= f.fields_for :ingredients do |builder| %>
+    <%= render 'ingredient_fields', :f => builder %>
+  <% end %>
+
+  <fieldset>
+    <%= f.submit "Submit" %>
+  </fieldset>
+<% end %>

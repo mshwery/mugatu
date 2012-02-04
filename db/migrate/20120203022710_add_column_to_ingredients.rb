@@ -1,5 +1,5 @@
 class AddColumnToIngredients < ActiveRecord::Migration
-  def up
-    add_column :ingredients, :id, :integer
+  def self.up
+    add_column :ingredients, :id, :primary_key
   end
 end

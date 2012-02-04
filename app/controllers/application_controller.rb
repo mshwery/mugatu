@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
     def require_user
       unless current_user
-        redirect_to login_url, :notice => "You must be logged in to access this page"
+        redirect_to login_url, :alert => "You must be logged in to access this page."
         return false
       end
     end

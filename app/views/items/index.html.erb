@@ -1,0 +1,13 @@
+<section id="items">
+
+  <h1>Items</h1>
+
+  <ul>
+    <% @items.each do |item| %>
+      <li><%= link_to item.name, item %> <%= link_to "Edit", edit_item_path(item.id) %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'New', items_new_path %>
+
+</section>

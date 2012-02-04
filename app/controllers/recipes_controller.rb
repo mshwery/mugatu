@@ -3,8 +3,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @items = Item.all
-#    @recipe.ingredients.build
-    2.times { @recipe.ingredients.build }
+#   @recipe.ingredients.build
+    5.times { @recipe.ingredients.build }
   end
 
   def create
@@ -21,6 +21,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @items = Item.all
+  end
+  
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(params[:recipe])
@@ -29,12 +34,6 @@ class RecipesController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def edit
-    @recipe = Recipe.find(params[:id])
-    @recipe.ingredients.build
-    @items = Item.all
   end
 
   def index
