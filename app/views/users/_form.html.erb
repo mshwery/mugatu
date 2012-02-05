@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+      
+  <%= f.hidden_field :account_id, :value => current_user.account_id %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit "Submit" %>
+  </fieldset>
+  
+<% end %>

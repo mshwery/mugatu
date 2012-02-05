@@ -1,7 +1,9 @@
 <section id="recipes">
 
-  <h1><%= @recipe.name %> (<%= @recipe.id %>)</h1>
-
+  <div class="header">
+    <h1><%= @recipe.name %> (<%= @recipe.id %>)</h1>
+  <div>
+    
   <%= render 'form' %>
 
   <p>

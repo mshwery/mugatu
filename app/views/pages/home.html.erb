@@ -1,16 +1,27 @@
 <section id="home">
 
-  <h1>Mugatu</h1>
-
-  <div class="list">
-    <h3>Accounts:</h3>
+  <div class="header">
+    <h1>Mugatu</h1>
+  </div>
+  
+  <div class="overview">
+    <h4>Accounts <%= link_to "Create New", signup_path %></h4>
     <ul>
       <% @accounts.each do |account| %>
-        <li><%= link_to account.name, account %></li>
+        <li>
+          <%= link_to account.name, account %>
+          <span>
+          (Admin:
+          <% account.users.each do |user| %>
+            <% if user.admin %>
+              <%= link_to user.name, user %>
+            <% end %>
+          <% end %>
+          )
+          </span>
+        </li>
       <% end %>
     </ul>
   </div>
-
-  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
   
 </section>

@@ -1,0 +1,10 @@
+section#recipes {
+  ul {
+    li {
+      .recipe {
+        color: #555;
+        &:hover { color: #333; }
+      }
+    }
+  }
+}

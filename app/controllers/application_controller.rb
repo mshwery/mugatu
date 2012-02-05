@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def require_admin
+      return current_user.admin
+    end
+
   helper_method :current_user  
 end

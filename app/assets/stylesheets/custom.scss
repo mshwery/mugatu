@@ -1,4 +1,6 @@
-$red: #c4161b;// rgb(210,40,40);
+$red:   #c4161b;
+$gray:  #444;
+$green: rgb(40,210,40);
 
 @mixin inline-block {
   display: inline-block;
@@ -34,49 +36,43 @@ body {
   position: relative;
 }
 
-h1 { font-size: 2em; }
-
-header {
-  nav {
-    padding: 10px 0;
-    ul {
-      li {
-        @include inline-block;
-        a {
-          padding: 5px;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-}
+h1 { font-size: 30px; }
+h4 { font-size: 16px; }
 
 section {
   background: #fff;
-  padding: 20px;
   border: 1px solid #bbb;
-  .list {
-    padding: 10px 0;
+  .header {
+    padding: 10px 20px;
   }
-}
-
-form {
-  padding: 20px 0;
-  fieldset {
-    padding: 10px 0;
-  }
-  input[type=text] {
-    @include box-shadow-inset(0px,1px,3px,rgba(0,0,0,.16));
-    border: 1px solid #aaa;
-    padding: 5px;
+  .overview {
+    background: lighten($green, 45%);
+    border-top: 1px solid lighten($green, 35%);
+    padding: 10px 20px;
+    h4 {
+      background: rgba(0,0,180,.10);
+      padding: 5px 0;
+      a {
+        font-size: 13px;
+        padding: 0 5px;
+      }
+    }
+    ul {
+      li:nth-child(even) {
+        background-color: rgba(0,0,0,.05);
+      }      
+    }
   }
 }
 
 ul {
   li {
     padding: 5px 0;
+    span {
+      font-size: 12px;
+      color: #555;
+      padding: 0 10px;
+    }
   }
 }
 
@@ -85,16 +81,5 @@ a[data-method=delete] {
   &:hover {
     color: darken($red, 8%);
     text-decoration: underline;
-  }
-}
-
-section#recipes {
-  ul {
-    li {
-      .recipe {
-        color: #555;
-        &:hover { color: #333; }
-      }
-    }
   }
 }

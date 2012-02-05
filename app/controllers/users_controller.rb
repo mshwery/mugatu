@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :require_user, :except => 'show'
+  before_filter :require_admin, :only => ['new','create']
+
   def show
     @user = current_user
     @title = @user.name
@@ -6,7 +9,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @account = Account.new(:user => @user)
     @title = "Sign up"
   end
 
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to user_path, :notice => 'Your profile was successfully updated.'
+      redirect_to user_path, :success => 'Your profile was successfully updated.'
     else
       render 'edit'
     end

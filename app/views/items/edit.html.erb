@@ -1,8 +1,11 @@
 <section id="items">
 
-  <h1>Edit <%= @item.name %></h1>
+  <div class="header">
+    <h1>Edit <%= @item.name %></h1>
+  </div>
 
   <%= render 'form' %>
+  
   <p>
     <%= link_to 'See All', items_path %>
   </p>

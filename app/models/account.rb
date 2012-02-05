@@ -19,11 +19,4 @@ class Account < ActiveRecord::Base
 
   accepts_nested_attributes_for :users, :allow_destroy => true
   
-  before_create :downcase_name
-
-  private
-    def downcase_name
-      self.name.downcase!
-    end
-
 end

@@ -1,9 +1,11 @@
 <section id="dashboard">
 
-  <h1><%= @account.name.capitalize %>'s Dashboard</h1>
+  <div class="header">
+    <h1><%= @account.name %>'s Dashboard</h1>
+  </div>
 
-  <div id="users">
-    <h4>Users</h4>
+  <div class="overview">
+    <h4>Users <%= link_to 'Add User', new_user_path %></h4>
     <ul>
       <% @account.users.each do |user| %>
         <li>
@@ -16,24 +18,22 @@
     </ul>
   </div>
 
-  <div id="recipes">
-    <h4>Recipes</h4>
+  <div class="overview">
+    <h4>Recipes <%= link_to "Create New", new_recipe_path %></h4>
     <ul>
       <% @account.recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipe %></li>
       <% end %>
     </ul>
-    <span><%= link_to "New Recipe", new_recipe_path %></span>
   </div>
 
-  <div id="items">
-    <h4>Items</h4>
+  <div class="overview">
+    <h4>Items <%= link_to "Create New", new_item_path %></h4>
     <ul>
       <% @items.each do |item| %>
         <li><%= link_to item.name, item %></li>
       <% end %>
     </ul>
-    <span><%= link_to "New Item", new_item_path %></span>
   </div>
   
 </section>
