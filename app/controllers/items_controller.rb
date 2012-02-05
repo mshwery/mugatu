@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      redirect_to items_path
+      redirect_to items_path, :notice => 'Item Updated!'
     else
       render 'edit'
     end
@@ -27,8 +27,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     if @item.save
-      flash[:success] = "Recipe Added!"
-      redirect_to @item
+      redirect_to @item, :success => 'Item Added!'
     else
       render 'new'
     end

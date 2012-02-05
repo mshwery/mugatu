@@ -1,6 +1,6 @@
 $red:   #c4161b;
 $gray:  #444;
-$green: rgb(40,210,40);
+$green: #1C921C;
 
 @mixin inline-block {
   display: inline-block;
@@ -42,13 +42,13 @@ h4 { font-size: 16px; }
 section {
   background: #fff;
   border: 1px solid #bbb;
+  padding: 20px;
   .header {
-    padding: 10px 20px;
   }
   .overview {
-    background: lighten($green, 45%);
-    border-top: 1px solid lighten($green, 35%);
-    padding: 10px 20px;
+    background: lighten($green, 60%);
+    padding: 20px;
+    margin: 20px 0;
     h4 {
       background: rgba(0,0,180,.10);
       padding: 5px 0;

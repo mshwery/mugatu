@@ -28,9 +28,19 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to user_path, :success => 'Your profile was successfully updated.'
+      redirect_to user_path, :notice => 'Your profile was successfully updated.'
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user == current_user
+      redirect_to dashboard_path, :alert => "You cannot delete yourself yet..."
+    else
+      @user.destroy
+      redirect_to dashboard_path, :notice => 'User Deleted.'
     end
   end
 

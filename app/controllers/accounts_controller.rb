@@ -47,9 +47,9 @@ class AccountsController < ApplicationController
 
   private
     def require_permission
-      redirect_to root_url, :alert => "You do not have access to this." unless (logged_in? && current_user.account_id == params[:id])
+      redirect_to root_url, :alert => "You do not have access to this." unless logged_in?
     end
-    
+
     def logged_in?
       if current_user
         return true

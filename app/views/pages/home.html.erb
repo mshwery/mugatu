@@ -14,7 +14,7 @@
           (Admin:
           <% account.users.each do |user| %>
             <% if user.admin %>
-              <%= link_to user.name, user %>
+              <%= link_to user.name, user %>.
             <% end %>
           <% end %>
           )
