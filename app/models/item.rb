@@ -12,6 +12,8 @@
 class Item < ActiveRecord::Base
   has_many :ingredients
   has_many :recipes, :through => :ingredients
+  has_one :unit
+  
   attr_accessible :name, :description
 
 end

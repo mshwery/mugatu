@@ -3,7 +3,7 @@ class Ingredient < ActiveRecord::Base
   belongs_to :item
   has_one :unit
 
-  attr_accessible :quantity, :item_id
+  attr_accessible :quantity, :item_id, :unit_id
 
 end
 
