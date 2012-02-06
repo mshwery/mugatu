@@ -1,26 +1,16 @@
 require 'spec_helper'
 
-describe Ingredient do
+describe Unit do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
-
-
-
-
-
-
-
-
 
 # == Schema Information
 #
-# Table name: ingredients
+# Table name: units
 #
 #  id         :integer         not null, primary key
-#  quantity   :string(255)
-#  recipe_id  :integer
-#  item_id    :integer
+#  type       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
-#  unit_id    :integer
 #
 
