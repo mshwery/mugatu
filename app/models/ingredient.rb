@@ -1,7 +1,7 @@
 class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :item
-  has_one :unit
+  belongs_to :unit
 
   attr_accessible :quantity, :item_id, :unit_id
 

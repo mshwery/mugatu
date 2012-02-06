@@ -1,6 +1,6 @@
 class Unit < ActiveRecord::Base
-  belongs_to :ingredient
-  belongs_to :item
+  has_many :ingredients
+  has_many :items
 
 end
 
