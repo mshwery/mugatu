@@ -3,9 +3,46 @@ form {
   fieldset {
     padding: 10px 0;
   }
+  label:first-child {
+    min-width: 120px;
+    display: inline-block;
+  }
   input[type=text], input[type=password] {
     @include box-shadow-inset(0px,1px,3px,rgba(0,0,0,.16));
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     padding: 5px;
+  }
+}
+
+table {
+  border: 1px solid #aaa;
+  caption {
+    background: #aaa;
+    padding: 5px 10px;
+    text-shadow: 0px 1px 1px rgba(255,255,255,.5);
+    font-weight: bold;
+  }
+  thead {
+    tr {
+      background: #eee;
+      @include box-shadow(0px,1px,3px,rgba(0,0,0,.2));
+      th {
+        padding: 5px 10px;
+        font-weight: normal;
+        text-align: left;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border-top: 1px solid #ddd;
+      td {
+        padding: 8px 10px;
+        vertical-align: middle;
+      }
+      .quantity {
+        input { width: 40px; text-align: right; }
+      }
+    }
   }
 }

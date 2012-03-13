@@ -12,7 +12,7 @@
 class Item < ActiveRecord::Base
   has_many :ingredients
   has_many :recipes, :through => :ingredients
-  belongs_to :unit
+  belongs_to :unit ## each unit could be assigned to many items, but each item can only be assigned one unit
   
   attr_accessible :name, :description
 

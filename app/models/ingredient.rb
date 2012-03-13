@@ -1,7 +1,7 @@
 class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :item
-  belongs_to :unit
+  belongs_to :unit ## each unit could be assigned to many ingredients, but each ingredient can only be assigned one unit
 
   attr_accessible :quantity, :item_id, :unit_id
 

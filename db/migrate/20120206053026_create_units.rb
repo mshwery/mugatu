@@ -1,7 +1,7 @@
 class CreateUnits < ActiveRecord::Migration
   def change
     create_table :units do |t|
-      t.string :type
+      t.string :name
 
       t.timestamps
     end
