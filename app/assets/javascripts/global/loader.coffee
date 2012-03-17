@@ -6,6 +6,7 @@ window.Mugatu =
 
   init: ->
     @Notifications.init()  
+    @Forms.init()  
     #console.log this
 
     #@controllerName = $("section").attr("id")

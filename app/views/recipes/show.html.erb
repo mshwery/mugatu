@@ -7,7 +7,7 @@
   <p>Ingredients:</p>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.quantity %><%= ingredient.unit.abbreviation %> <%= ingredient.item.name %></li>
+      <li><%= ingredient.quantity %> <%= ingredient.unit.abbreviation %> <%= ingredient.item.name %></li>
     <% end %>
   </ul>
 

@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @items = Item.all
     @units = Unit.order('abbreviation')
-    @recipe.ingredients.build
-    #5.times { @recipe.ingredients.build }
+    #@recipe.ingredients.build
+    3.times { @recipe.ingredients.build }
   end
 
   def create

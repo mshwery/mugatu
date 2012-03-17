@@ -14,12 +14,13 @@
 
   <fieldset>
     <table>
-      <caption>Ingredients</caption>
+      <caption>Ingredients <%= add_child_link "Add Ingredient", :ingredients %></caption>
       <thead>
         <tr>
           <th>Ingredient</th>
           <th>Quantity</th>
           <th>Unit</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,7 @@
           <%= render 'ingredient_fields', :f => builder %>
         <% end %>
       </tbody>
+      <%= new_child_fields_template f, :ingredients, :partial => 'ingredient_fields' %>
     </table>
   </fieldset>
   <fieldset>

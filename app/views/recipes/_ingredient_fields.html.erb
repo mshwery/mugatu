@@ -1,8 +1,9 @@
-<tr>
+<tr class="field">
   <td><%= f.collection_select(:item_id, @items, :id, :name, options ={:prompt => "-Select ingredient"}) %></td>
   <td class="quantity"><%= f.text_field :quantity, :autocomplete => 'off' %></td>
   <td><%= f.collection_select(:unit_id, @units, :id, :abbreviation, options ={:prompt => "-unit"}) %></td>
-</tr> 
-<%#= f.collection_select(:item_id, @items, :id, :name, options ={:prompt => "-Select an ingredient"}) %>
-<%#= f.label :quantity %>
-<%#= f.text_field :quantity, :autocomplete => 'off' %>
+  <td>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "remove", '#', :class => 'remove' %>
+  </td>
+</tr>
