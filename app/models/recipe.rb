@@ -25,6 +25,7 @@ class Recipe < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
                     
   validates :account_id, :presence => true
+  
 end
 
 

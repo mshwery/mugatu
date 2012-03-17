@@ -5,6 +5,10 @@ class Ingredient < ActiveRecord::Base
 
   attr_accessible :quantity, :item_id, :unit_id
 
+  validates :quantity, :presence => true
+  validates :item_id, :presence => true
+  validates :unit_id, :presence => true
+
 end
 
 # == Schema Information
