@@ -12,6 +12,11 @@ $green: #1C921C;
   -webkit-box-shadow:   inset #{$ew} #{$ns} #{$size} #{$color};
   -moz-box-shadow:      inset #{$ew} #{$ns} #{$size} #{$color};
 }
+@mixin box-shadow($ew, $ns, $size, $color) {
+  box-shadow:           #{$ew} #{$ns} #{$size} #{$color};
+  -webkit-box-shadow:   #{$ew} #{$ns} #{$size} #{$color};
+  -moz-box-shadow:      #{$ew} #{$ns} #{$size} #{$color};
+}
 @mixin border-radius($size) {
   border-radius:          #{$size};
   -webkit-border-radius:  #{$size};

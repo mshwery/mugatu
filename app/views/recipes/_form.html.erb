@@ -12,10 +12,23 @@
     <%= f.text_field :notes %>
   </fieldset>
 
-  <%= f.fields_for :ingredients do |builder| %>
-    <%= render 'ingredient_fields', :f => builder %>
-  <% end %>
-
+  <fieldset>
+    <table>
+      <caption>Ingredients</caption>
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= f.fields_for :ingredients do |builder| %>
+          <%= render 'ingredient_fields', :f => builder %>
+        <% end %>
+      </tbody>
+    </table>
+  </fieldset>
   <fieldset>
     <%= f.submit "Submit" %>
   </fieldset>

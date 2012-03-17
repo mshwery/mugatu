@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @items = Item.all
+    @units = Unit.order('abbreviation')
 #   @recipe.ingredients.build
     5.times { @recipe.ingredients.build }
   end
@@ -23,6 +24,7 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @items = Item.all
+    @units = Unit.order('abbreviation')
   end
   
   def update
