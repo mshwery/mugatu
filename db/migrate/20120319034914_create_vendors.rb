@@ -1,11 +1,15 @@
 class CreateVendors < ActiveRecord::Migration
-  def change
-    create_table :vendor do |t|
+  def self.up
+    create_table :vendors do |t|
       t.string :name
       t.string :phone
       t.string :address
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :vendors
   end
 end

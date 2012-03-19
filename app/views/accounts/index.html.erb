@@ -25,7 +25,21 @@
     <h4>Recipes <%= link_to "Create New", new_recipe_path %></h4>
     <ul>
       <% @account.recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe %></li>
+        <li>
+          <%= link_to recipe.name, recipe %>
+          <%= link_to "Edit", edit_recipe_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="overview">
+    <h4>Vendors <%= link_to "Create New", new_vendor_path %></h4>
+    <ul>
+      <% @account.vendors.each do |vendor| %>
+        <li>
+          <%= link_to vendor.name, vendor %>
+        </li>
       <% end %>
     </ul>
   </div>
