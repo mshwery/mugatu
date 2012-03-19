@@ -1,0 +1,27 @@
+<section id="vendors">
+
+  <div class="header">
+    <h1>Edit Vendors</h1>
+  </div>
+
+  <%= form_for @vendor do |f| %>
+    <%= render 'partials/error_messages', :object => f.object %>
+
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :phone %>
+      <%= f.text_field :phone %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </fieldset>
+    <fieldset>
+      <%= f.submit "Submit" %>
+    </fieldset>
+  <% end %>
+
+</section>

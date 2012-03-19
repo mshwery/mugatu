@@ -15,11 +15,16 @@ Mugatu::Application.routes.draw do
   resources :recipes
   resources :items
   resources :ingredients
+  resources :vendors
 
   match '/dashboard', :to => 'accounts#index'
 
   resource :user do
     match '/edit', :to => 'users#edit', :as => 'edit'
+  end
+  
+  resource :recipe do
+    match '/edit', :to => 'recipes#edit', :as => 'edit'
   end
 
   match '/signup', :to => 'accounts#new', :as => 'signup'

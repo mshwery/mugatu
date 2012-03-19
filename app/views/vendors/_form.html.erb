@@ -1,0 +1,20 @@
+<%= form_for @vendor do |f| %>
+  <%= render 'partials/error_messages', :object => f.object %>
+  <%= f.hidden_field :account_id, :value => current_user.account_id %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit "Submit" %>
+  </fieldset>
+<% end %>
